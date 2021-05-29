@@ -1,18 +1,22 @@
-# Starting up the apache containers:
+# Load Balancing using Round robin Approach
+
+This project contains the code and Dockerfiles for setting up Load Balancing amongst containers using Round robin approach.
+
+## Starting up the apache containers:
 
 ```docker build -t myapache .```
 
 For each container:
 ```docker run -d myapache```
 
-# Finding the ips of the containers spun
+## Finding the ips of the containers spun
 
 ```docker network inspect bridge```
 
 Modify the IPs found in the nginx.conf file 
 
 
-# Manually modifying each containers index.html file in /var/www/html
+## Manually modifying each containers index.html file in /var/www/html
 
 ```docker exec -it <container-id> /bin/bash```
 
@@ -28,13 +32,13 @@ Modify the IPs found in the nginx.conf file
 
 Copy the enclosed index.html file after modifying the container ID
 
-# Staring up the nginx container
+## Staring up the nginx container
 
 ```docker build -f DockerfileNginx -t nginx .```
 
 ```docker run -it --rm -d -p 8080:80 --name mynginx nginx```
 
-# Testing
+## Testing
 
 Go to 127.0.0.1:8080 in your browser
 
